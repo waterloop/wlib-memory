@@ -8,7 +8,7 @@
 namespace wlp {
     template<typename T, typename... Args>
     typename det::enable_type_if<is_object<T>::value, T *>::type
-    construct(void *ptr, Args... args) {
+    construct(void *ptr, Args &&...args) {
         ::new(ptr) T(forward<Args>(args)...);
         return reinterpret_cast<T *>(ptr);
     }

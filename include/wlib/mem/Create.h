@@ -10,7 +10,7 @@
 namespace wlp {
     template<typename T, typename... Args>
     typename det::enable_type_if<!is_array<T>::value, T *>::type
-    create(Args... args) {
+    create(Args &&...args) {
         void *ptr = mem::alloc(sizeof(T));
         return construct<T>(ptr, forward<Args>(args)...);
     }
