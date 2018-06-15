@@ -19,12 +19,17 @@ pkg:
   - ALL
   board:
   - ALL
+  - uno
   compile_flags: []
   ide: none
 
 targets:
   default: ""
-  create: {}
+  create:
+    "":
+      board: uno
+      target_compile_flags: []
+      pkg_compile_flags: []
 
 dependencies:
   wlib-malloc:
