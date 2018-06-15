@@ -22,8 +22,17 @@ pkg:
   compile_flags: []
   ide: none
 
+targets:
+  default: ""
+  create: {}
+
 dependencies:
+  wlib-malloc:
+    version: 1.0.1
+    vendor: false
+    compile_flags: []
+
   wlib-tmp:
-    version: latest
+    version: 1.0.0
     vendor: false
     compile_flags: []
