@@ -1,25 +1,43 @@
 pkg:
   name: wlib-memory
-  description: "Memory create, destroy, and allocators for WLib"
-  repository: "https://github.com/waterloop/wlib-memory.git"
+  description: Memory create, destroy, and allocators for WLib
+  repository: https://github.com/waterloop/wlib-memory.git
   version: 1.0.0
-  author: "Jeff Niu <jeffniu22@gmail.com> (https://github.com/mogball)"
+  author: Jeff Niu <jeffniu22@gmail.com> (https://github.com/mogball)
   contributors: []
-  organization: "Waterloop"
-  keywords: 
+  organization: Waterloop
+  keywords:
   - wio
   - c++
   - wlib
   - waterloop
   - memory
-  license: "MIT"
+  license: MIT
   header_only: false
   platform: ALL
   framework:
   - ALL
   board:
   - ALL
+  - uno
   compile_flags: []
   ide: none
 
-dependencies: {}
+targets:
+  default: ""
+  create:
+    "":
+      board: uno
+      target_compile_flags: []
+      pkg_compile_flags: []
+
+dependencies:
+  wlib-malloc:
+    version: 1.0.1
+    vendor: false
+    compile_flags: []
+
+  wlib-tmp:
+    version: 1.0.0
+    vendor: false
+    compile_flags: []
