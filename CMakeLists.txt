@@ -7,8 +7,8 @@ set(PACKAGE wlib-memory)
 set(${PACKAGE}_dir ${CMAKE_CURRENT_LIST_DIR})
 set(${PACKAGE}_include ${${PACKAGE}_dir}/include)
 
-set(TARGET tests)
-set(${TARGET}_dir ${CMAKE_CURRENT_LIST_DIR}/tests)
+set(TARGET unit)
+set(${TARGET}_dir ${CMAKE_CURRENT_LIST_DIR}/unit)
 set(${TARGET}_PRIVATE_headers wlib-memory)
 
 set(MODULES_DIR ${CMAKE_CURRENT_LIST_DIR}/.wio/node_modules)
@@ -18,7 +18,7 @@ set(HEADERS wlib-tmp)
 set(wlib-malloc_PRIVATE_dependencies wlib-tlsf)
 set(wlib-memory_PUBLIC_dependencies wlib-malloc)
 set(wlib-memory_PUBLIC_headers wlib-tmp)
-set(tests_PRIVATE_headers wlib-memory)
+set(unit_PRIVATE_headers wlib-memory)
 
 set(wlib-tlsf_PRIVATE_defines
     WLIB_TLSF_64BIT
