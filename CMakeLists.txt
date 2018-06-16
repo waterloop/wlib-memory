@@ -21,8 +21,8 @@ set(wlib-memory_PUBLIC_headers wlib-tmp)
 set(tests_PRIVATE_headers wlib-memory)
 
 set(wlib-tlsf_PRIVATE_defines
-    WLIB_TLSF_32BIT
-    WLIB_TLSF_LOG2_ALIGN=2
+    WLIB_TLSF_64BIT
+    WLIB_TLSF_LOG2_ALIGN=3
     WLIB_TLSF_LOG2_DIV=3
     WLIB_TLSF_LOG2_MAX=11
     )
@@ -62,8 +62,6 @@ foreach(scope PRIVATE PUBLIC)
     foreach(module ${MODULES})
         set(dependencies ${${module}_${scope}_dependencies})
         foreach(dependency ${dependencies})
-            message(STATUS "${module} : ${dependency}")
-
             target_link_libraries(${module} ${dependency})
         endforeach()
         while(dependencies)
@@ -86,6 +84,7 @@ foreach(scope PRIVATE PUBLIC)
             set(headers)
             foreach(header ${loop})
                 target_include_directories(${module} ${scope} ${${header}_include})
+                target_link_libraries(${module} ${${header}_PUBLIC_dependencies})
                 set(headers ${headers} ${${header}_PUBLIC_dependencies})
                 set(headers ${headers} ${${header}_PUBLIC_headers})
             endforeach()
