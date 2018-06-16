@@ -44,10 +44,10 @@ void setup() {
 void loop() {
     tlsf_printf("Element test: ");
     item *p_item = create<item>(dest, 12.3f, strings[((int) abs(dest)) % 4]);
-    //tlsf_printf("%i, %.1f, %s\n", p_item->integer, p_item->floating, p_item->string);
+    tlsf_printf("%i, %i, %s\n", p_item->integer, (int) p_item->floating, p_item->string);
     destroy<item>(p_item);
 
-    //item *p_arr_item = create<item[]>(16);
-    //destroy<item[]>(p_arr_item);
+    item *p_arr_item = create<item[]>(16);
+    destroy<item[]>(p_arr_item);
     delay(50);
 }
