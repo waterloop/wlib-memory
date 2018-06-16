@@ -19,6 +19,7 @@ pkg:
   - ALL
   board:
   - ALL
+  - mega2560
   compile_flags: []
   ide: none
 
