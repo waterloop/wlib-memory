@@ -13,23 +13,14 @@ pkg:
   - waterloop
   - memory
   license: MIT
-  header_only: false
+  header_only: true
   platform: ALL
   framework:
   - ALL
   board:
   - ALL
-  - uno
   compile_flags: []
   ide: none
-
-targets:
-  default: ""
-  create:
-    "":
-      board: uno
-      target_compile_flags: []
-      pkg_compile_flags: []
 
 dependencies:
   wlib-malloc:

@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
     deconstruct(ptr);
 
     lptr = construct<unsigned long>(pool, 167);
-    printf("%i\n", *lptr);
+    printf("%li\n", *lptr);
     deconstruct(lptr);
 
     // create
