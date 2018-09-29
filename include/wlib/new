@@ -1,0 +1,6 @@
+#ifndef __WLIB_MEMORY_NEW__
+#define __WLIB_MEMORY_NEW__
+
+#include <wlib/mem/Placement.h>
+
+#endif
