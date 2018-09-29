@@ -2,7 +2,7 @@ type: pkg
 
 project:
   name: wlib-memory
-  version: 1.0.3
+  version: 1.0.4
   organization: Waterloop
   description: Memory create, destroy, and allocators for WLib
   license: MIT
