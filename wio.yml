@@ -41,14 +41,12 @@ targets:
 
 dependencies:
   wlib-malloc:
-    version: 1.0.2
-    link_visibility: INTERFACE
+    version: 1.0.3
     definitions:
     - $(WLIB_TLSF_ARCH)
     - $(WLIB_TLSF_LOG2_DIV)
     - $(WLIB_TLSF_LOG2_ALIGN)
     - $(WLIB_TLSF_LOG2_MAX)
   wlib-tmp:
-    version: 1.0.1
-    link_visibility: INTERFACE
+    version: 1.0.2
 
