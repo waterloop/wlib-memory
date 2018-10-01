@@ -15,5 +15,10 @@ int *integer = create<int>(15);
 destroy(user); // implicit type deduction
 destroy<char[]>(characters);
 destroy<int>(integer);
+```
 
+Install the package
+
+```bash
+wio install wlib-memory
 ```
