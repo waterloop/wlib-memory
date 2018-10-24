@@ -4,6 +4,7 @@
 #include <wlib/utility>
 #include <wlib/type_traits>
 #include <wlib/mem/Detail.h>
+#include <wlib/mem/New.h>
 
 namespace wlp {
     template<typename T, typename... Args>
