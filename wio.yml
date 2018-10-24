@@ -2,7 +2,7 @@ type: pkg
 
 project:
   name: wlib-memory
-  version: 1.0.4
+  version: 1.0.5
   organization: Waterloop
   description: Memory create, destroy, and allocators for WLib
   license: MIT
@@ -14,21 +14,37 @@ project:
   - waterloop
   - memory
   - allocator
-  definitions:
-      required:
-        private:
-        - WLIB_TLSF_ARCH
-        - WLIB_TLSF_LOG2_DIV
-        - WLIB_TLSF_LOG2_ALIGN
-        - WLIB_TLSF_LOG2_MAX
   compile_options:
-    wio_version: 0.4.1
+    wio_version: 0.6.0
     header_only: true
-    default_target: tests
+    default_target: cosa-tests
+  definitions:
+    required:
+      private:
+      - WLIB_TLSF_ARCH
+      - WLIB_TLSF_LOG2_DIV
+      - WLIB_TLSF_LOG2_ALIGN
+      - WLIB_TLSF_LOG2_MAX
+    optional:
+      private:
+      - WLIB_TLSF_PRINTF
+      - WLIB_TLSF_ASSERT
 
 targets:
-  tests:
-    src: tests
+  arduino-tests:
+    src: tests/arduino
+    platform: avr
+    framework: arduino
+    board: uno
+    definitions:
+      package:
+      - WLIB_TLSF_ARCH=16
+      - WLIB_TLSF_LOG2_DIV=3
+      - WLIB_TLSF_LOG2_ALIGN=1
+      - WLIB_TLSF_LOG2_MAX=11
+      - WLIB_TLSF_PRINTF
+  cosa-tests:
+    src: tests/cosa
     platform: avr
     framework: cosa
     board: mega2560
@@ -39,7 +55,7 @@ targets:
       - WLIB_TLSF_LOG2_ALIGN=1
       - WLIB_TLSF_LOG2_MAX=11
   native-tests:
-    src: native-tests
+    src: tests/native
     platform: native
     definitions:
       package:
@@ -50,12 +66,14 @@ targets:
 
 dependencies:
   wlib-malloc:
-    version: 1.0.4
+    version: 1.0.5
     definitions:
     - $(WLIB_TLSF_ARCH)
     - $(WLIB_TLSF_LOG2_DIV)
     - $(WLIB_TLSF_LOG2_ALIGN)
     - $(WLIB_TLSF_LOG2_MAX)
+    - $optional(WLIB_TLSF_PRINTF)
+    - $optional(WLIB_TLSF_ASSERT)
   wlib-tmp:
     version: 1.0.2
 
